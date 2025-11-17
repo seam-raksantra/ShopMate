@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">ShopMate</string>
+    <string name="welcome">Welcome to ShopMate</string>
+    <string name="welcome_description">Your friendly companion for daily grocery shopping fresh, fast, and simple!</string>
+    <string name="get_start">Get Started</string>
+    <string name="category">Categories</string>
+    <string name="vegetable">Vegetable</string>
+    <string name="fruit">Fruits</string>
+    <string name="meat">Meat</string>
+    <string name="dairy">Dairy</string>
+    <string name="app_guide">Become easy with your daily shopping. No worries about forgot what you need!</string>
 </resources>
