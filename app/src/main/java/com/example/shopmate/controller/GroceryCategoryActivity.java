@@ -3,8 +3,8 @@ package com.example.shopmate.controller;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.LinearLayout;
+
 import com.example.shopmate.R;
 
 public class GroceryCategoryActivity extends AppCompatActivity {

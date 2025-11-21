@@ -18,13 +18,14 @@
             android:background="@drawable/bg_top_appbar"
             android:padding="12dp"
             android:elevation="8dp"
+            android:layout_marginTop="50dp"
             android:gravity="center_vertical">
 
             <TextView
                 android:id="@+id/tvLogo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
                 android:text="@string/app_name"
                 android:textStyle="bold"
                 android:textSize="24sp"
@@ -34,9 +35,12 @@
                 android:id="@+id/ivTopIcon"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginEnd="15dp"
                 android:layout_alignParentEnd="true"
-                android:src="@drawable/ic_save_color"/>
+                android:src="@drawable/ic_save_color"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless" />
         </RelativeLayout>
 
         <!-- Banner -->
@@ -81,11 +85,10 @@
                     android:shadowColor="#80000000"
                     android:shadowDx="2"
                     android:shadowDy="2"
-                    android:shadowRadius="6"/>
+                    android:shadowRadius="6" />
             </RelativeLayout>
         </LinearLayout>
 
-        <!-- Section Title -->
         <TextView
             android:layout_marginTop="18dp"
             android:layout_width="wrap_content"
@@ -93,9 +96,8 @@
             android:text="@string/category"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black" />
 
-        <!-- Category Grid -->
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -105,120 +107,151 @@
             android:alignmentMode="alignMargins"
             android:useDefaultMargins="true">
 
-            <!-- Vegetable -->
-            <LinearLayout
-                android:id="@+id/cardVegetable"
-                android:layout_width="0dp"
-                android:layout_height="180dp"
+            <androidx.cardview.widget.CardView
+                android:layout_width="40dp"
+                android:layout_height="250dp"
                 android:layout_columnWeight="1"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:background="@drawable/bg_category_card"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground">
+                android:layout_margin="8dp"
+                app:cardElevation="8dp"
+                app:cardUseCompatPadding="true"
+                app:cardCornerRadius="18dp">
 
-                <ImageView
+                <LinearLayout
+                    android:id="@+id/cardVegetable"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:adjustViewBounds="true"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/vegetable"/>
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:background="@drawable/bg_category_card">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:text="@string/vegetable"
-                    android:textSize="20sp" />
-            </LinearLayout>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/vegetable" />
 
-            <!-- Fruits -->
-            <LinearLayout
-                android:id="@+id/cardFruits"
-                android:layout_width="0dp"
-                android:layout_height="180dp"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/vegetable"
+                        android:textSize="20sp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="40dp"
+                android:layout_height="250dp"
                 android:layout_columnWeight="1"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:background="@drawable/bg_category_card"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground">
+                android:layout_margin="8dp"
+                app:cardElevation="8dp"
+                app:cardUseCompatPadding="true"
+                app:cardCornerRadius="18dp">
 
-                <ImageView
+                <LinearLayout
+                    android:id="@+id/cardFruits"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:adjustViewBounds="true"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/fruit"/>
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:background="@drawable/bg_category_card">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:text="@string/fruit"
-                    android:textSize="20sp" />
-            </LinearLayout>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/fruit" />
 
-            <!-- Meats -->
-            <LinearLayout
-                android:id="@+id/cardMeats"
-                android:layout_width="0dp"
-                android:layout_height="180dp"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/fruit"
+                        android:textSize="20sp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="40dp"
+                android:layout_height="250dp"
                 android:layout_columnWeight="1"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:background="@drawable/bg_category_card"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground">
+                android:layout_margin="8dp"
+                app:cardElevation="8dp"
+                app:cardUseCompatPadding="true"
+                app:cardCornerRadius="18dp">
 
-                <ImageView
+                <LinearLayout
+                    android:id="@+id/cardMeats"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:adjustViewBounds="true"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/meat"/>
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:background="@drawable/bg_category_card">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:text="@string/meat"
-                    android:textSize="20sp" />
-            </LinearLayout>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/meat" />
 
-            <!-- Dairy -->
-            <LinearLayout
-                android:id="@+id/cardDairy"
-                android:layout_width="0dp"
-                android:layout_height="180dp"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/meat"
+                        android:textSize="20sp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="40dp"
+                android:layout_height="250dp"
                 android:layout_columnWeight="1"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:background="@drawable/bg_category_card"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground">
+                android:layout_margin="8dp"
+                app:cardElevation="8dp"
+                app:cardUseCompatPadding="true"
+                app:cardCornerRadius="18dp">
 
-                <ImageView
+                <LinearLayout
+                    android:id="@+id/cardDairy"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:adjustViewBounds="true"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/dairy"/>
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:background="@drawable/bg_category_card">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:text="@string/dairy"
-                    android:textSize="20sp" />
-            </LinearLayout>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/dairy" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/dairy"
+                        android:textSize="20sp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
         </GridLayout>
 
     </LinearLayout>
-
 </ScrollView>
