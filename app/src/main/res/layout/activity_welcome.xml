@@ -9,7 +9,7 @@
         android:id="@+id/tvTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="80dp"
         android:gravity="center"
         android:padding="16dp"
         android:text="@string/welcome"
@@ -36,13 +36,11 @@
 
     <ImageView
         android:id="@+id/imgIllustration"
-        android:layout_width="320dp"
-        android:layout_height="350dp"
+        android:layout_width="350dp"
+        android:layout_height="0dp"
         android:layout_marginTop="20dp"
         android:src="@drawable/welcome_banner"
-        app:layout_constraintBottom_toTopOf="@+id/btnGetStarted"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.57"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvSubtitle"
         app:layout_constraintVertical_bias="0.16" />
@@ -52,7 +50,7 @@
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_margin="18dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="80dp"
         android:backgroundTint="@color/turquoise"
         android:text="@string/get_start"
         android:textAllCaps="false"
@@ -62,7 +60,6 @@
         app:cornerRadius="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.500"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

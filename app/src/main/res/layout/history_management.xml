@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <!-- Top App Bar -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@drawable/bg_top_appbar"
+        android:padding="12dp"
+        android:elevation="8dp"
+        android:gravity="center_vertical">
+
+        <!-- Back button -->
+        <ImageView
+            android:id="@+id/btnBackHistory"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/ic_back"
+            android:padding="4dp"
+            android:layout_alignParentStart="true" />
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/tvHistoryTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="History Management"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
+
+    <!-- EMPTY STATE (Visible when no items saved) -->
+    <LinearLayout
+        android:id="@+id/emptyStateLayout"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="24dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:src="@drawable/empty_box"
+            android:alpha="0.8" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No saved items yet!"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Saved groceries will appear here."
+            android:textSize="14sp"
+            android:textColor="#888"
+            android:layout_marginTop="6dp" />
+    </LinearLayout>
+
+    <!-- SAVED ITEMS LIST -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/historyRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="12dp"
+        android:visibility="gone"
+        android:clipToPadding="false" />
+
+</LinearLayout>
