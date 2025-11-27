@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <!-- Top App Bar -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/bg_top_appbar"
+        android:padding="12dp"
+        android:elevation="8dp"
+        android:gravity="center_vertical">
+
+        <!-- Back Arrow -->
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_alignParentStart="true"
+            android:src="@drawable/ic_back"
+            android:padding="4dp" />
+
+        <!-- Page Title -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Grocery List"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <!-- Save Icon (Hidden until an item is selected) -->
+        <ImageView
+            android:id="@+id/btnSave"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_save_color"
+            android:padding="4dp"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <!-- Main content -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="12dp"
+        android:clipToPadding="false" />
+
+</LinearLayout>
