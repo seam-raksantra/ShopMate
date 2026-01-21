@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="72dp"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:padding="12dp"
+    android:layout_marginBottom="10dp">
+
+
+    <ImageView
+        android:id="@+id/imgIcon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="15dp"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:id="@+id/txtProductName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginStart="12dp"
+        android:text="Tomato"
+        android:textSize="16sp" />
+
+    <!-- minus button -->
+    <TextView
+        android:id="@+id/btnMinus"
+        android:layout_width="16dp"
+        android:layout_height="32dp"
+        android:gravity="center"
+        android:text="-"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:layout_marginStart="8dp" />
+
+    <!-- quantity badge -->
+    <TextView
+        android:id="@+id/txtProductQty"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:gravity="center"
+        android:text="2"
+        android:textSize="12sp"
+        android:textColor="@android:color/white"
+        android:background="@drawable/bg_qty_badge"
+        android:layout_marginStart="8dp" />
+
+    <!-- plus button -->
+    <TextView
+        android:id="@+id/btnPlus"
+        android:layout_width="16dp"
+        android:layout_height="32dp"
+        android:gravity="center"
+        android:text="+"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:layout_marginStart="8dp" />
+
+    <!-- ADD THIS PRICE EDITTEXT -->
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/edtPrice"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:hint="$0"
+        android:inputType="numberDecimal"
+        android:textSize="14sp"
+        android:gravity="center"
+        android:layout_marginStart="8dp" />
+
+
+</LinearLayout>
