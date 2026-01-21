@@ -9,6 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
+import android.app.AlertDialog;
+import android.widget.EditText;
+
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.shopmate.R;
 import com.example.shopmate.adapter.GroceryAdapter;
 import com.example.shopmate.model.GroceryItem;
+import com.google.gson.Gson;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -42,7 +46,7 @@ public class GroceryListFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_grocery_list, container, false);
 
         recyclerView = view.findViewById(R.id.recyclerView);
-        btnSave = view.findViewById(R.id.ivTopIcon);
+        btnSave = view.findViewById(R.id.btnSave);
 
         // Make save icon clickable
         btnSave.setClickable(true);
@@ -53,16 +57,18 @@ public class GroceryListFragment extends Fragment {
 
         loadGroceryItems();
 
+        // 3-argument constructor: Context, list, SelectionListener
         adapter = new GroceryAdapter(
-                getContext(),
+                requireContext(),
                 groceryList,
-                this::updateSaveButtonVisibility
+                this::updateSaveButtonVisibility   // callback on selection change
         );
 
         recyclerView.setAdapter(adapter);
 
         btnSave.setOnClickListener(v -> saveSelectedItems());
 
+        // initial visibility
         updateSaveButtonVisibility();
 
         return view;
@@ -84,25 +90,50 @@ public class GroceryListFragment extends Fragment {
 
     // Save items in SharedPreferences
     private void saveSelectedItems() {
-        JSONArray arr = new JSONArray();
+        List<GroceryItem> selectedList = new ArrayList<>();
 
         for (GroceryItem item : groceryList) {
             if (item.isChecked()) {
-                JSONObject obj = new JSONObject();
-                try {
-                    obj.put("name", item.getName());
-                    obj.put("image", item.getImage());
-                } catch (Exception ignored) {}
-                arr.put(obj);
+                selectedList.add(item);
             }
         }
 
-        editor.putString(KEY_HISTORY, arr.toString());
-        editor.apply();
+        if (selectedList.isEmpty()) {
+            Toast.makeText(requireContext(), "No items selected", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
-        Toast.makeText(getContext(), "Saved to history!", Toast.LENGTH_SHORT).show();
+        // Show dialog to enter list name
+        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+        builder.setTitle("Save Grocery List");
 
-        startActivity(new Intent(getContext(), HistoryManagementActivity.class));
+        final EditText input = new EditText(requireContext());
+        input.setHint("Enter list name");
+        builder.setView(input);
+
+        builder.setPositiveButton("Save", (dialog, which) -> {
+            String listName = input.getText().toString().trim();
+            if (listName.isEmpty()) {
+                Toast.makeText(requireContext(), "Please enter a name", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            // Convert list to JSON using Gson
+            String json = new Gson().toJson(selectedList);
+            editor.putString(KEY_HISTORY + "_" + listName, json);
+            editor.apply();
+
+            Toast.makeText(requireContext(), "Saved as \"" + listName + "\"!", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(requireContext(), HistoryManagementActivity.class));
+        });
+        builder.setNegativeButton("Cancel", (dialog, which) -> dialog.cancel());
+
+        try {
+            builder.show();
+        } catch (Exception e) {
+            Toast.makeText(requireContext(), "Error showing dialog", Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        }
     }
 
     // Fill grocery list (placeholder)

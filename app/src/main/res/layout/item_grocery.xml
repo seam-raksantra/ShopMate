@@ -3,30 +3,46 @@
     android:id="@+id/itemLayout"
     android:layout_width="match_parent"
     android:layout_height="80dp"
-    android:orientation="horizontal"
-    android:padding="15dp"
+    android:layout_marginBottom="10dp"
     android:background="@drawable/item_bg"
     android:gravity="center_vertical"
-    android:layout_marginBottom="10dp">
+    android:orientation="horizontal"
+    android:padding="15dp">
 
     <!-- ITEM IMAGE -->
     <ImageView
         android:id="@+id/imgIcon"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:scaleType="centerCrop"
-        android:layout_marginEnd="15dp" />
+        android:layout_marginEnd="15dp"
+        android:scaleType="centerCrop" />
 
-    <!-- ITEM NAME -->
-    <TextView
-        android:id="@+id/txtName"
+    <!-- Text container: name + date -->
+    <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:orientation="vertical"
         android:gravity="center_vertical"
-        android:paddingEnd="10dp" />
+        android:paddingEnd="10dp">
+
+        <!-- ITEM NAME -->
+        <TextView
+            android:id="@+id/txtName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <!-- ITEM DATE (used in history) -->
+        <TextView
+            android:id="@+id/txtDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="#888"
+            android:layout_marginTop="4dp" />
+    </LinearLayout>
 
     <!-- CHECKBOX -->
     <CheckBox

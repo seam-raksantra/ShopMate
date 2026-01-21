@@ -3,23 +3,26 @@ package com.example.shopmate.controller;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.example.shopmate.R;
+import com.example.shopmate.ui.HistoryManagementActivity;
 
 public class GroceryCategoryActivity extends AppCompatActivity {
-
-    private LinearLayout cardVegetable, cardFruits, cardMeats, cardDairy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grocery_category);
 
-        cardVegetable = findViewById(R.id.cardVegetable);
-        cardFruits    = findViewById(R.id.cardFruits);
-        cardMeats     = findViewById(R.id.cardMeats);
-        cardDairy     = findViewById(R.id.cardDairy);
+        LinearLayout cardVegetable = findViewById(R.id.cardVegetable);
+        LinearLayout cardFruits = findViewById(R.id.cardFruits);
+        LinearLayout cardMeats = findViewById(R.id.cardMeats);
+        LinearLayout cardDairy = findViewById(R.id.cardDairy);
+
+        ImageView ivTopIcon = findViewById(R.id.ivTopIcon);
+        ivTopIcon.setOnClickListener(v -> startActivity(new Intent(GroceryCategoryActivity.this, HistoryManagementActivity.class)));
 
         cardVegetable.setOnClickListener(v -> openCategory("Vegetable"));
         cardFruits.setOnClickListener(v -> openCategory("Fruits"));

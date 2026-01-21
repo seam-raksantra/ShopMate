@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">ShopMate</string>
-    <string name="welcome">Welcome to ShopMate</string>
+    <string name="app_name">KANTRAK</string>
+    <string name="welcome">Welcome to KANTRAK</string>
     <string name="welcome_description">Your friendly companion for daily grocery shopping fresh, fast, and simple!</string>
     <string name="get_start">Get Started</string>
     <string name="category">Categories</string>
@@ -10,4 +10,16 @@
     <string name="dairy">Dairy</string>
     <string name="app_guide">Become easy with your daily shopping. No worries about forgot what you need!</string>
     <string name="category_list">Category List</string>
+    <string name="history">History</string>
+    <string name="search_items">Search items...</string>
+    <string name="clear">Clear</string>
+    <string name="delete">Delete</string>
+    <string name="drawable_name_e_g_ic_carrot">Drawable name (e.g. ic_carrot)</string>
+    <string name="item_name">Item name</string>
+    <string name="save">Save</string>
+    <string name="_5_items">5 items</string>
+    <string name="today_record">Today record</string>
+    <string name="total_0_00">Total: $0.00</string>
+    <string name="history_record">History Record</string>
+    <string name="product_image">\n</string>
 </resources>
